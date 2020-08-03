@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block body_content %}
+<p>Welcome to the PEUS-M homepage.</p>
+{% for epic in Epics %}
+	<div>
+		<h3>{{ epic.epicName }}</h3>
+		<p><b> - Epic Desc:</b> -- {{ epic.epicDesc }}</p>
+		<p><b> - Project ID:</b>{{ epic.project.projectID }}</p>
+	</div>
+{% endfor %}
+	
+{% endblock %}

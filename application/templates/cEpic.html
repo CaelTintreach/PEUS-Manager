@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+{% block body_content %}
+<div class="form">
+	<form method="POST" action="">
+		{{ form.hidden_tag() }}
+		<div class="form-group">
+			{{ form.title.label }}
+			{{ form.title }}
+			{% if form.title.errors %}
+			<div class="error">
+				{% for error in form.title.errors %}
+				    <span>{{ error }}</span>
+				{% endfor %}
+			</div>
+			{% endif %}
+		</div>
+		<br>
+		<div class="form-group">
+			{{ form.content.label }}
+			{{ form.content }}
+			{% if form.content.errors %}
+			<div class="error">
+				{% for error in form.content.errors %}
+				    <span>{{ error }}</span>
+				{% endfor %}
+			</div>
+			{% endif %}
+		</div>
+		<br>
+		<div class="form-group">
+		    {{ form.submit }}
+		</div>
+	</form>
+</div>
+{% endblock body_content %}
+
+{% extends 'layout.html' %}
+{% block body_content %}
+    <p>Create a tank</p>
+    <div class='form'>
+        <form method='POST' action=''>
+	{{ form.hidden_tag() }}
+	<div class="form-group">
+	    {{ form.name.label }}
+	    {{ form.name }}
+	    {% if form.name.errors %}
+	    <div class="error">
+	        {% for error in form.name.errors %}
+	            <span>{{ error }}</span>
+	        {% endfor %}
+	    </div>
+	    {% endif %}
+	</div>
+	<br>
+	<div class="form-group">
+	    {{ form.description.label }}
+	    {{ form.decription }}
+	    {% if form.description.errors %}
+	    <div class="error">
+	        {% for error in form.description.errors %}
+	            <span>{{ error }}</span>
+	        {% endfor %}
+	    </div>
+	    {% endif %}
+	</div>
+	<br>
+            <div class='form_group'>
+                {{ form.submit }}
+            </div>
+        </form>
+    </div>
+{% endblock %}
+
+{% extends "layout.html" %}
+{% block body_content %}
+    <div class='form'>
+        <form method='POST' action=''>
+            {{ form.hidden_tag() }}
+            {{ form.first_name.label }}
+            {{ form.first_name }}
+            <br>
+            {{ form.last_name.label }}
+            {{ form.last_name }}
+            <br>
+            {{ form.title.label }}
+            {{ form.title }}
+            <br>
+            {{ form.content.label }}
+            {{ form.content }}
+            <br>
+            {{ form.submit }}
+        </form>
+    </div>
+{% endblock %}
+
+{% extends "layout.html" %}
+{% block body_content %}
+{% endblock %}
