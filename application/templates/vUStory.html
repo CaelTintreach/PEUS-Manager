@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block body_content %}
+<p>This is the view user stories page.</p>
+{% for uStory in uStories %}
+	<div>
+		<h3>{{ uStory.uStoryName }}</h3>
+		<p>{{ ustory.ustoryAsA }}</p>
+		<p>{{ ustory.ustoryIWant }}</p>
+		<p>{{ ustory.ustoryToSo }}</p>
+		<p>{{ ustory.ustoryComplete }}</p>
+	</div>
+	<br>
+	<form action="{{ url_for('project/delete'), projectID=Projects.projectID}}">
+		<button type="submit">Delete your User Story</button>
+	</form>
+{% endfor %}	
+{% endblock %}

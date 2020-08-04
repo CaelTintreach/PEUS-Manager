@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+{% block body_content %}
+<h1>Update User Story Page</h1>
+    <div class='form'>
+        <form method='POST' action=''>
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.uStoryName.label }}
+                {{ form.uStoryName }}
+                {% if form.uStoryName.errors %}
+                <div class="error">
+                    {% for error in form.first_name.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+			<br>
+			<div class="form-group">
+                {{ form.projectID.label }}
+                {{ form.projectID }}
+                {% if form.projectID.errors %}
+                <div class="error">
+                    {% for error in form.first_name.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+			<br>
+			<div class="form-group">
+                {{ form.uStoryAsA.label }}
+                {{ form.uStoryAsA }}
+                {% if form.uStoryAsA.errors %}
+                <div class="error">
+                    {% for error in form.first_name.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+			<br>
+			<br>
+			<div class="form-group">
+                {{ form.uStoryIWant.label }}
+                {{ form.uStoryIWant }}
+                {% if form.uStoryIWant.errors %}
+                <div class="error">
+                    {% for error in form.first_name.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+			<br>
+			<div class="form-group">
+                {{ form.uStoryToSo.label }}
+                {{ form.uStoryToSo }}
+                {% if form.uStoryToSo.errors %}
+                <div class="error">
+                    {% for error in form.first_name.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+			<br>
+			<div class="form_group">
+				{{ form.uStoryComplete.label }}
+				{{ form.uStoryComplete }}
+			</div>	
+			<br>
+            <div>
+                {{ form.submit }}
+            </div>
+        </form>
+        <form action="{{ url_for('account_delete') }}">
+            <button type="submit">Delete your account</button>
+        </form>
+    </div>
+{% endblock %}

@@ -4,7 +4,7 @@ class Projects(db.model):
 	projectID = db.Column(db.Integer, primary_key=True)
 	projectName = db.Column(db.String(100), nullable=False, unique=True)
 	projectComplete = db.Column(db.Boolean, nullable=False, unique=False, default=False)
-	epics = db.relationship('Epics', backref='project', lazy=True)
+	ustories = db.relationship('User Stories', backref='uStoryBR', lazy=True)
 
 	def __repr__(self):
 		return ''.join([
@@ -12,34 +12,20 @@ class Projects(db.model):
 			'Project Name: ', self.projectName, '\r\n'
 		])
 
-class Epics(db.model):
-	epicID = db.Column(db.Integer, primary_key=True)
-	projectID = db.Column(db.Integer, db.ForeignKey('Projects.projectID'), nullable=False)
-	epicName = db.Column(db.String(100), nullable=False, unique=True)
-	epicDesc = db.Column(db.String(100), nullable=False, unique=True)
-	epicComplete = db.Column(db.Boolean, nullable=False, unique=False, default=False)
-	ustories = db.relationship('User Stories', backref='epic', lazy=True)
-
-	def __repr__(self):
-		return ''.join([
-			'Epic ID: ', self.epicID, '\r\n',
-			'Epic Name: ', self.epicName, '\r\n'
-		])
-
 class UserStories(db.model):
-	ustoryID = db.Column(db.Integer, primary_key=True)
-	epicID = db.Column(db.Integer, db.ForeignKey('Epics.epicID'), nullable=False)
-	ustoryName = db.Column(db.String(100), nullable=False, unique=True)
-	ustoryComplete = db.Column(db.Boolean, nullable=False, unique=False, default=False)
-	ustoryAsA = db.Column(db.String(500), nullable=False, unique=True)
-	ustoryIWant = db.Column(db.String(500), nullable=False, unique=True)
-	ustoryToSo = db.Column(db.String(500), nullable=False, unique=True)
+	uStoryID = db.Column(db.Integer, primary_key=True)
+	pID = db.Column(db.Integer, db.ForeignKey('Projects.projectID'), nullable=False)
+	uStoryName = db.Column(db.String(100), nullable=False, unique=True)
+	uStoryComplete = db.Column(db.Boolean, nullable=False, unique=False, default=False)
+	uStoryAsA = db.Column(db.String(500), nullable=False, unique=True)
+	uStoryIWant = db.Column(db.String(500), nullable=False, unique=True)
+	uStoryToSo = db.Column(db.String(500), nullable=False, unique=True)
 
 	def __repr__(self):
 		return ''.join([
-			'User Story ID: ', self.user_id, '\r\n',
-			'User Story Name: ', self.title, '\r\n', 
-			'As A: ',
-			'I Want: ',
-			'To/So: ', 
+			'User Story ID: ', self.ustoryID, '\r\n',
+			'User Story Name: ', self.ustoryName, '\r\n', 
+			'As A: ', self.ustoryAsA, '\r\n',
+			'I Want: ', self.ustoryIWant, '\r\n',
+			'To/So: ',  self.ustoryToSo, '\r\n'
 		])
