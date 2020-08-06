@@ -28,7 +28,7 @@ def adduserstory():
 	if form.validate_on_submit():
 		uStory = UserStories(
 			uStoryName=form.uStoryName.data,
-			pID=Projects.query.filter_by(id=form.projectID.data).first(),
+			projectID=Projects.query.filter_by(id=form.projectID.data).first(),
 			uStoryAsA=form.uStoryAsA.data,
 			uStoryIWant=form.uStoryIWant.data,
 			uStoryToSo=form.uStoryToSo.data,

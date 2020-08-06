@@ -14,7 +14,7 @@ class Projects(db.Model):
 
 class UserStories(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
-	pID = db.Column(db.Integer, db.ForeignKey('Projects.id'), nullable=False)
+	projectID = db.Column(db.Integer, db.ForeignKey('Projects.id'), nullable=False)
 	uStoryName = db.Column(db.String(100), nullable=False, unique=True)
 	uStoryComplete = db.Column(db.Boolean, nullable=False, unique=False, default=False)
 	uStoryAsA = db.Column(db.String(500), nullable=False, unique=True)
