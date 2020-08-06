@@ -47,7 +47,7 @@ def home():
 
 @app.route("/updateproject/<projectID>", methods=["Get","POST"])
 def projectUpdate(projectID):
-	projectID = UserStories.query.filter_by(projectID=id)
+	projectID = Projects.query.filter_by(projectID=id)
 	form = ProjectForm()
 	if form.validate_on_submit():
 		Projects.projectName = form.projectName.data
