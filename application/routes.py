@@ -1,6 +1,6 @@
 from flask import render_template, redirect, url_for, request
 from application import app, db
-from application.Models import Projects, UserStories
+from application.models import Projects, UserStories
 from application.forms import ProjectForm, UStoryForm, UpdateUStoryForm, UpdateProjectForm
 
 @app.route('/about') #The about page will display a cut down version of the readme file which explains site functionality. 
