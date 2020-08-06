@@ -45,7 +45,7 @@ class UStoryForm(FlaskForm):
 			]
 	)
 	uStoryComplete = BooleanField('Completed?')
-	SubmitField = SubmitField('Add User Story')
+	submit = SubmitField('Add User Story')
 
 class UpdateUStoryForm(FlaskForm):
 	uStoryName = StringField('User Story Name',
