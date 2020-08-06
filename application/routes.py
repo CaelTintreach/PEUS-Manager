@@ -45,7 +45,7 @@ def home():
     projectData = Projects.query.all()
     return render_template('home.html', title='Home', Projects=projectData)
 
-@app.route("/project/update/<projectID>", methods=["Get","POST"])
+@app.route("/updateproject/<projectID>", methods=["Get","POST"])
 def projectUpdate(projectID):
 	projectID = UserStories.query.filter_by(projectID=id)
 	form = ProjectForm()
@@ -58,8 +58,8 @@ def projectUpdate(projectID):
 		form.projectName.data = Projects.projectName
 		form.projectComplete.data = Projects.projectComplete
 	return render_template('account.html', title='Account', form=UpdateUStoryForm)
-
-@app.route("/userstory/update/<uStoryID>", methods=["Get","POST"])
+'''
+@app.route("/updateuserstory/<uStoryID>", methods=["Get","POST"])
 def uStoryUpdate(uStoryID):
 	uStoryID = UserStories.query.filter_by(uStoryID=id)
 	form = UpdateUStoryForm()
@@ -72,7 +72,7 @@ def uStoryUpdate(uStoryID):
 		form.projectName.data = current_user.projectName
 		form.projectComplete.data = current_user.projectComplete
 	return render_template('account.html', title='Account', form=UpdateUStoryForm)
-
+'''
 @app.route("/project/delete/<projectID>", methods=["GET", "POST"])
 def projectDelete(projectID):
 	projectID = Projects.query.filter_by(projectID=id)

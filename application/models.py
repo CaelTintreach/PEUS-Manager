@@ -1,6 +1,6 @@
 from application import db
 
-class Projects(db.model):
+class Projects(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	projectName = db.Column(db.String(100), nullable=False, unique=True)
 	projectComplete = db.Column(db.Boolean, nullable=False, unique=False, default=False)
@@ -12,9 +12,9 @@ class Projects(db.model):
 			'Project Name: ', self.projectName, '\r\n'
 		])
 
-class UserStories(db.model):
+class UserStories(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
-	pID = db.Column(db.Integer, db.ForeignKey('Projects.id'), nullable=False)
+	pID = db.Column(db.Integer, db.ForeignKey('projects.id'), nullable=False)
 	uStoryName = db.Column(db.String(100), nullable=False, unique=True)
 	uStoryComplete = db.Column(db.Boolean, nullable=False, unique=False, default=False)
 	uStoryAsA = db.Column(db.String(500), nullable=False, unique=True)
