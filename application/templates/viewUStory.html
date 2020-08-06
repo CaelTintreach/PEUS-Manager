@@ -1,5 +1,4 @@
 {% extends "layout.html" %}
-
 {% block body_content %}
 <p>This is the view user stories page.</p>
 {% for uStory in uStories %}
@@ -11,7 +10,7 @@
 		<p>{{ ustory.ustoryComplete }}</p>
 	</div>
 	<br>
-	<form action="{{ url_for('project/delete'), projectID=Projects.projectID}}">
+	<form action="{{ url_for('userstory/delete'), uStoryID=UserStories.id}}">
 		<button type="submit">Delete your User Story</button>
 	</form>
 {% endfor %}	

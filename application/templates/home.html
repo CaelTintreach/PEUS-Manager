@@ -1,14 +1,14 @@
 {% extends "layout.html" %}
 {% block body_content %}
-<p>Welcome to the PEUS-M homepage.</p>
+<h1>Welcome to the PEUS-M homepage.</h1>
 {% for project in Projects %}
 	<div>
 		<h3>{{ project.projectName }}</h3>
-		<p><b>Project ID:</b>{{project.projectID }}</p>
+		<p>Project ID:{{ project.id }}</p>
 	</div>
 	<br>
-	<form action="{{ url_for('project/delete'), projectID=Projects.projectID}}">
-		<button type="submit">Delete your User Story</button>
+	<form action="{{ url_for('project/delete'), projectID=Projects.id}}">
+		<button type="submit">Delete your project</button>
 	</form>
 {% endfor %}
 {% endblock %}

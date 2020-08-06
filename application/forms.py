@@ -89,5 +89,4 @@ class UpdateProjectForm(FlaskForm):
             ]
     )
 	projectComplete = BooleanField('Completed?')
-
 	submit = SubmitField('Update Project')	
