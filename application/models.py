@@ -4,14 +4,14 @@ class Projects(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	projectName = db.Column(db.String(100), nullable=False, unique=True)
 	projectComplete = db.Column(db.Boolean, nullable=False, unique=False, default=False)
-	ustories = db.relationship('UserStories', backref='uStoryBR', lazy=True)
+	#ustories = db.relationship('UserStories', backref='uStoryBR', lazy=True)
 
 	def __repr__(self):
 		return ''.join([
 			'Project ID: ', self.id, '\r\n',
 			'Project Name: ', self.projectName, '\r\n'
 		])
-
+'''
 class UserStories(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	projectID = db.Column(db.Integer, db.ForeignKey('Projects.id'), nullable=False)
@@ -29,3 +29,4 @@ class UserStories(db.Model):
 			'I Want: ', self.ustoryIWant, '\r\n',
 			'To/So: ',  self.ustoryToSo, '\r\n'
 		])
+'''
