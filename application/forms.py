@@ -22,8 +22,7 @@ class UStoryForm(FlaskForm):
 	)
 	projectID = IntegerField('Please Enter Project ID as a numerical value: ',
 			validators = [
-				DataRequired(),
-				NumberRange(min=1, max=50)
+				DataRequired()
 			]
 	)
 	uStoryAsA = StringField('As a: ',

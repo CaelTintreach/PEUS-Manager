@@ -33,8 +33,7 @@ def adduserstory():
 			uStoryIWant=form.uStoryIWant.data,
 			uStoryToSo=form.uStoryToSo.data,
 			uStoryComplete=form.uStoryComplete.data
-
-		)
+			)
 		db.session.add(uStory)
 		db.session.commit()
 		return redirect(url_for('home'))
