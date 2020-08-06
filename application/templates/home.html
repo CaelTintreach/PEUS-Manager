@@ -4,9 +4,8 @@
 <h1>Welcome to the PEUS-M homepage.</h1>
 {% for project in projects %}
 	<div>
-		<p>{{ project.title }}</p>>
-		<p>{{ project.Project.projectName }}</p>>
-		<p>{{ project.Project.id }}</p>
+		<p>{{ Project.projectName }}</p>>
+		<p>{{ Project.id }}</p>
 	</div>
 	<br>
 	<form action="{{ url_for('projectDelete', projectID=Projects.id)}}">
