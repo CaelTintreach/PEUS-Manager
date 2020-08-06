@@ -28,11 +28,12 @@ def adduserstory():
 	if form.validate_on_submit():
 		uStory = UserStories(
 			uStoryName=form.uStoryName.data,
-			projectID=form.projectID.data,
+			projectID=form.pID.data,
 			uStoryAsA=form.uStoryAsA.data,
 			uStoryIWant=form.uStoryIWant.data,
 			uStoryToSo=form.uStoryToSo.data,
 			uStoryComplete=form.uStoryComplete.data
+
 		)
 		db.session.add(uStory)
 		db.session.commit()
