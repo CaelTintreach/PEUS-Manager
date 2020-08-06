@@ -3,8 +3,8 @@
 <h1>Welcome to the PEUS-M homepage.</h1>
 {% for project in projects %}
 	<div>
-		<h3>{{ project.projectName }}</h3>
-		<p>{{ project.id }}</p>
+		<h3>{{ Project.projectName }}</h3>
+		<p>{{ Project.id }}</p>
 	</div>
 	<br>
 	<form action="{{ url_for('/project/delete/<projectID>'), projectID=Projects.id}}">
