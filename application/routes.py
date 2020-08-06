@@ -43,7 +43,7 @@ def adduserstory():
 @app.route('/home') #The homepage will display all projects currently in the database as well as their status. 
 def home():
     projectData = Projects.query.all()
-    return render_template('home.html', title='Home', Projects=projectData)
+    return render_template('home.html', title='Home', projects=projectData)
 
 @app.route("/updateproject/<projectID>", methods=["Get","POST"])
 def projectUpdate(projectID):
