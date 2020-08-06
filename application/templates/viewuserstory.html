@@ -10,8 +10,5 @@
 		<p>{{ ustory.ustoryComplete }}</p>
 	</div>
 	<br>
-	<form action="{{ url_for('uStoryDelete', uStoryID=UserStories.id)}}">
-		<button type="submit">Delete your User Story</button>
-	</form>
 {% endfor %}	
 {% endblock %}
