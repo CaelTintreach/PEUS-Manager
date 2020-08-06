@@ -13,7 +13,7 @@ def addproject():
 	if form.validate_on_submit():
 		project = Projects(
 			projectName=form.projectName.data,
-			projectComplete=form.projectComplete.data,
+			projectComplete=form.projectComplete.data
 			)
 		db.session.add(project)
 		db.session.commit()
@@ -53,26 +53,30 @@ def projectUpdate(projectID):
 		Projects.projectName = form.projectName.data
 		Projects.projectComplete = form.projectComplete.data
 		db.session.commit()
-		return redirect(url_for('account'))
+		return redirect(url_for('home'))
 	elif request.method == 'GET':
 		form.projectName.data = Projects.projectName
 		form.projectComplete.data = Projects.projectComplete
-	return render_template('account.html', title='Account', form=UpdateUStoryForm)
-'''
+	return render_template('home.html', title='Home', form=UpdateUStoryForm)
+
 @app.route("/updateuserstory/<uStoryID>", methods=["Get","POST"])
 def uStoryUpdate(uStoryID):
-	uStoryID = UserStories.query.filter_by(uStoryID=id)
+	uStoryID = Projects.query.filter_by(uStoryID=id)
 	form = UpdateUStoryForm()
 	if form.validate_on_submit():
-		current_user.first_name = form.projectName.data
-		current_user.last_name = form.projectComplete.data
+		UserStories.uStoryName = form.uStoryName.data
+		UserStories.pID = form.pID.data
+		UserStories.uStoryAsA = form.uStoryAsA.data
+		UserStories.uStoryIWant = form.uStoryIWant.data
+		UserStories.uStoryToSo = form.uStoryToSo.data
+		UserStories.uStoryComplete = form.uStoryComplete.data
 		db.session.commit()
-		return redirect(url_for('account'))
+		return redirect(url_for('home'))
 	elif request.method == 'GET':
-		form.projectName.data = current_user.projectName
-		form.projectComplete.data = current_user.projectComplete
-	return render_template('account.html', title='Account', form=UpdateUStoryForm)
-'''
+		form.projectName.data = Projects.projectName
+		form.projectComplete.data = Projects.projectComplete
+	return render_template('home.html', title='Home', form=UpdateUStoryForm)
+
 @app.route("/project/delete/<projectID>", methods=["GET", "POST"])
 def projectDelete(projectID):
 	projectID = Projects.query.filter_by(projectID=id)
