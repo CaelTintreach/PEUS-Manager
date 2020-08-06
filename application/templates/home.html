@@ -1,8 +1,10 @@
 {% extends "layout.html" %}
+
 {% block body_content %}
 <h1>Welcome to the PEUS-M homepage.</h1>
 {% for project in projects %}
 	<div>
+		<p>{{ project.title }}</p>>
 		<p>{{ project.Project.projectName }}</p>>
 		<p>{{ project.Project.id }}</p>
 	</div>
@@ -12,4 +14,5 @@
 		<!--<button type="submit">Delete your project</button>-->
 	<!--</form>-->	
 {% endfor %}
+
 {% endblock %}
