@@ -46,7 +46,7 @@ def home():
     return render_template('home.html', title='home', projects=projectData)
 
 @app.route("/updateproject/<projectID>", methods=["Get","POST"])
-def projectUpdate(projectID):
+def updateproject(projectID):
 	projectID = Projects.query.filter_by(projectID=id)
 	form = ProjectForm()
 	if form.validate_on_submit():
@@ -77,7 +77,7 @@ def uStoryUpdate(uStoryID):
 		form.projectComplete.data = Projects.projectComplete
 	return render_template('home.html', title='Home', form=UpdateUStoryForm)
 
-@app.route("/project/delete/<projectID>", methods=["GET", "POST"])
+@app.route("/deleteproject/<projectID>", methods=["GET", "POST"])
 def projectDelete(projectID):
 	projectID = Projects.query.filter_by(projectID=id)
 	uStories = UserStories.query.filter_by(projectID=pID)
@@ -87,7 +87,7 @@ def projectDelete(projectID):
 	db.session.commit()
 	return redirect(url_for('home'))
 
-@app.route("/userstory/delete/<uStoryID>", methods=["GET","POST"])
+@app.route("/deleteuserstory/<uStoryID>", methods=["GET","POST"])
 def uStoryDelete(uStoryID):
 	uStoryID = UserStories.query.filter_by(uStoryID=id)
 	db.session.delete(uStoryID)
