@@ -4,7 +4,6 @@ class Projects(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	projectName = db.Column(db.String(100), nullable=False, unique=True)
 	projectComplete = db.Column(db.Boolean, nullable=False, unique=False, default=False)
-	ustories = db.relationship('UserStories', backref='uStoryBR', lazy=True)
 
 	def __repr__(self):
 		return ''.join([
